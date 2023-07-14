@@ -14,7 +14,7 @@ ul{
 }
 li{
     display: list-item;
-    text-align: -webkit-match-parent
+    list-style: none;
 }
 button {
     background-color: #4CAF50;
