@@ -1,0 +1,24 @@
+.wrap{
+    display: flex;
+    justify-content: space-around;
+}
+section{
+    width: 33,3%;
+    display: block;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+li{
+    display: list-item;
+    text-align: -webkit-match-parent
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
