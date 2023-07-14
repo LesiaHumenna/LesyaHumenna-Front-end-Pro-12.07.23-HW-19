@@ -122,7 +122,7 @@ productCategoryListEl.addEventListener("click", (e) => {
         const productName = e.target.innerText;
         productCategoryListEl.appendChild(li);
     });
-    console.log(productName);
+    
 });
 
 infoSection.addEventListener("click", (e)=>{
@@ -130,21 +130,20 @@ infoSection.addEventListener("click", (e)=>{
         infoSection.innerHTML = "";
         infoSection.appendChild(btnBuy);
     }
-        categoryListEl.innerHTML = "";
-        productCategoryListEl.style.display = "block";
-        infoSection.innerHTML = "";
+        // categoryListEl.innerHTML = "";
+        // categoryListEl.style.display = "block";
+        
 })
 
 btnBuy.addEventListener("click", (e) => {
-    btnBuy.innerText = "Купити";
-        
     const selectedProduct = productCategoryListEl.querySelector("li");
         if (selectedProduct) {
-            const productName = selectedProduct.getAttribute("data-name");
-            btnBuy.innerText = "Купити";
-            alert(`Товар "${productName}" куплено!`);
+            const productsName = selectedProduct.getAttribute("data-name");
+            alert(`Товар "${productsName}" куплено!`);
         }
-    categoryListEl.innerHTML = "";
-    productCategoryListEl.style.display = "block";
-    infoSection.innerHTML = "";
+        categoryListEl.style.display = "block";
+        productCategoryListEl.innerHTML = "";
+        infoSection.innerHTML = "";
+        infoSection.style.display = 'none';
+        
 });
