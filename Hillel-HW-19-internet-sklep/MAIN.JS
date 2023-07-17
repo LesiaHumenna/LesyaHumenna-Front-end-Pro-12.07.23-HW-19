@@ -137,11 +137,15 @@ btnBuy.addEventListener("click", (e) => {
   }
 });
 //forms
-function myTable(form) {
-  let form = document.getElementById("form");
-  let table = document.getElementById("myTable");
 
-  let fullName = form.elements["fullName"].value;
+const NAME_ERROR = "Please enter a name";
+let form = document.getElementById("form");
+let table = document.getElementById("myTable");
+
+let nameElement = form.elements["fullName"];
+
+function myTable() {
+  let fullName = nameElement.value;
   let city = form.elements["city"].value;
   let post = form.elements["post"].value;
   let pay = form.elements["pay"].value;
@@ -154,25 +158,18 @@ function myTable(form) {
     newRow.insertCell(2),
     newRow.insertCell(3),
     newRow.insertCell(4),
-    newRow.insertCell(5),
   ];
 
   cells[0].innerHTML = fullName;
   cells[1].innerHTML = city;
   cells[2].innerHTML = post;
   cells[3].innerHTML = pay;
-  cells[4].innerHTML = city;
-  cells[5].innerHTML = coment;
+  cells[4].innerHTML = coment;
 
   form.reset();
   table.style.display = "table";
 }
-myTable();
-
 //
-const form = document.getElementById("form");
-const nameElement = form.elements["fullName"];
-
 function showError(el, message) {
   const errorPlaceholder = el.parentNode.querySelector("small");
   errorPlaceholder.textContent = message;
@@ -186,47 +183,30 @@ function showSuccess(el) {
   el.classList.add("success");
   el.classList.remove("error");
 }
-
-function showMessage(el, errorMessage) {
-  const errorPlaceholder = el.parentNode.querySelector("small");
-  errorPlaceholder.textContent = errorMessage ? errorMessage : "";
-  if (errorMessage) {
-    el.classList.add("error");
-    el.classList.remove("success");
-  } else {
-    el.classList.add("success");
-    el.classList.remove("error");
-  }
-}
+//
 function validateName(el, message) {
   const fullName = el.value.trim();
-
-  if (fullName !== "") {
-    //show success
-    showMessage(el, null);
-    return true;
-  } else {
-    //show error
-    showMessage(el, message);
+  if (typeof fullName !== "string") {
+    showError(el, message);
     return false;
+  } else {
+    showSuccess(el);
+    return true;
   }
 }
-
-const NAME_ERROR = "Please enter a name";
-
+//
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  // 3. Validation for input elements
-  // validate the name element
   const isNameValid = validateName(nameElement, NAME_ERROR);
 
   if (isNameValid) {
     console.log("Submit");
+    myTable();
   }
 });
-
-nameElement.addEventListener("keyup", (event) => {
+//
+nameElement.addEventListener("input", (event) => {
   console.log(event.target.value);
   validateName(event.target, NAME_ERROR);
 });
+//

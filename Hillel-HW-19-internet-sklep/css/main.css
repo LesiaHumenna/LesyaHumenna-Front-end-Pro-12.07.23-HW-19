@@ -52,7 +52,7 @@ select {
 }
 
 table, td, th{
-    display         : none;
+    /* display         : none; */
     border-collapse : collapse;
     margin-top      : 20px;
     background-color: rgb(237, 224, 237);
@@ -63,3 +63,7 @@ td,
 th {
     border: 1px solid black;
 }
+/* .error-message{ */
+    /* color: red; */
+    /* font-size: 16px; */
+/* } */
