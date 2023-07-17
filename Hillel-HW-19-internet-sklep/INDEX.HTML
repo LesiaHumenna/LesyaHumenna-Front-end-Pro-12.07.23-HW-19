@@ -22,7 +22,75 @@
       <section class="info">
         <p></p>
         <button class="btn">Buy</button>
+        <button class="btn-buy">'Мої замовлення'</button>
       </section>
+
+      <!-- form -->
+      <form action="#" id="form">
+        <fieldset id="signup">
+          <legend><b>Дані покупця:</b></legend>
+          <br />
+          <label for="namePerson">ПІБ покупця:</label><br />
+          <input
+            type="text"
+            id="fullName"
+            name="ПІБ"
+            placeholder="ПІБ"
+            autocomplete="username"
+            required
+          /><br />
+
+          <label for="City">Оберіть місто:</label><br />
+          <select name="City" id="city" required>
+            <option value="Kyiv">Київ</option>
+            <option value="Vinnitsa">Вінниця</option>
+            <option value="Lviv">Львів</option>
+            <option value="Odesa">Одеса</option></select
+          ><br />
+
+          <label for="Post">Оберіть пошту:</label><br />
+          <select name="Post" id="post" required>
+            <option value="NewPost">Нова пошта</option>
+            <option value="UkrPost">Укрпошта</option></select
+          ><br />
+          <label for="Pay">Оплата:</label><br />
+          <select name="Pay" id="pay" required>
+            <option value="Postpaid">Післяплата</option>
+            <option value="BankPay">Оплата банківською картою</option></select
+          ><br />
+          <label for="coment">Залиште коментар:</label><br />
+          <textarea
+            name="coment"
+            id="coment"
+            cols="30"
+            rows="10"
+            width="200px"
+            heigth="150px"
+          ></textarea>
+          <br />
+          <input type="button" value="submit" id="submit" onclick="myTable()" />
+        </fieldset>
+      </form>
+      <table id="myTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Post</th>
+            <th>Pay</th>
+            <th>Coment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <script src="MAIN.JS"></script>
   </body>

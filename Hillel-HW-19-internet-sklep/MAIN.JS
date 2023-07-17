@@ -134,6 +134,52 @@ btnBuy.addEventListener("click", (e) => {
         alert("Оберіть товар!");
     }
 });
+//forms
+function myTable(forms) {
+    let form = document.getElementById("form");
+    let table = document.getElementById("myTable");
+
+    let fullName = form.elements["fullName"].value;
+    let city = form.elements["city"].value;
+    let post = form.elements["post"].value;
+    let pay = form.elements["pay"].value;
+    let coment = form.elements["coment"].value;
+
+    let newRow = table.insertRow(-1);
+    let cells = [
+        newRow.insertCell(0),
+        newRow.insertCell(1),
+        newRow.insertCell(2),
+        newRow.insertCell(3),
+        newRow.insertCell(4),
+        newRow.insertCell(5)
+    ];
+
+    cells[0].innerHTML = fullName;
+    cells[1].innerHTML = city;
+    cells[2].innerHTML = post;
+    cells[3].innerHTML = pay;
+    cells[4].innerHTML = city;
+    cells[5].innerHTML = coment;
+
+    form.reset();
+    table.style.display = "table";
+}
+myTable();
+
+// function validateName(el, message) {
+    // const name = el.value.trim();
+// 
+    // if (fullName !== '') {
+        //show success
+        // showMessage(el);
+        // return true;
+    // } else {
+        //show error
+        // showMessage(el, message);
+        // return false;
+    // }
+// }
 
 
 

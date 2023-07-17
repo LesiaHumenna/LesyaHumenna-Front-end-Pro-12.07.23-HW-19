@@ -1,25 +1,65 @@
-.wrap{
-    display: flex;
+.wrap {
+    display        : flex;
     justify-content: space-around;
 }
-section{
-    width: 33,3%;
+
+section {
+    width     : 33, 3%;
     /* display: block; */
-    cursor: pointer;
+    cursor    : pointer;
 }
 
-ul{
+ul {
     /* list-style: none; */
     padding: 0;
 }
-li{
-    display: list-item;
+
+li {
+    display   : list-item;
     list-style: none;
 }
+
 button {
     background-color: #4CAF50;
-    color: white;
-    padding: 5px 10px;
-    cursor: pointer;
-    border: none;
+    color           : white;
+    padding         : 5px 10px;
+    cursor          : pointer;
+    border          : none;
+}
+
+form {
+    background-color: #c6e6c7;
+    max-width       : 550px;
+    margin-top      : 20px;
+}
+
+#signup {
+    max-width: 550px;
+}
+
+input,
+textarea,
+label,
+select {
+    left         : 20px;
+    margin-top   : 10px;
+    margin-bottom: 15px;
+}
+
+#city {
+    margin-top   : 5px;
+    margin-bottom: 15px;
+}
+
+table, td, th{
+    display         : none;
+    border-collapse : collapse;
+    margin-top      : 20px;
+    background-color: rgb(237, 224, 237);
+}
+
+table,
+td,
+th {
+    border: 1px solid black;
 }
