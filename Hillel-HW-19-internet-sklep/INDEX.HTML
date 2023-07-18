@@ -39,7 +39,7 @@
             autocomplete="username"
             required
           /><br />
-          <small></small><br>
+          <small class="error-message"></small><br>
           <label for="City">Оберіть місто:</label><br />
           <select name="City" id="city" required>
             <option value="Kyiv">Київ</option>
@@ -91,6 +91,22 @@
           </tr>
         </tbody>
       </table>
+
+      <div id="orderInfo">
+        <h2>"Інформація про замовлення:"</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ПІБ</th>
+              <th>Місто</th>
+              <th>Пошта</th>
+              <th>Оплата</th>
+              <th>Коментар</th>
+            </tr>
+            <tbody id="orderBody"></tbody>
+          </thead>
+        </table>
+      </div>
     </div>
     <script src="MAIN.JS"></script>
   </body>

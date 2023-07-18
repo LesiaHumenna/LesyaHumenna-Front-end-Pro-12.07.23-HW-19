@@ -186,7 +186,7 @@ function showSuccess(el) {
 //
 function validateName(el, message) {
   const fullName = el.value.trim();
-  if (typeof fullName !== "string") {
+  if (!isNaN(fullName) || typeof fullName !== "string") {
     showError(el, message);
     return false;
   } else {
