@@ -41,7 +41,7 @@
           /><br />
           <small class="error-message"></small><br>
           <label for="City">Оберіть місто:</label><br />
-          <select name="City" id="city" required>
+          <select name="City" id="city" required autocomplete="Ваше місто:">
             <option value="Kyiv">Київ</option>
             <option value="Vinnitsa">Вінниця</option>
             <option value="Lviv">Львів</option>
@@ -49,12 +49,12 @@
           ><br />
 
           <label for="Post">Оберіть пошту:</label><br />
-          <select name="Post" id="post" required>
+          <select name="Post" id="post" required autocomplete="Оберіть пошту:">
             <option value="NewPost">Нова пошта</option>
             <option value="UkrPost">Укрпошта</option></select
           ><br />
           <label for="Pay">Оплата:</label><br />
-          <select name="Pay" id="pay" required>
+          <select name="Pay" id="pay" required autocomplete="Оберіть оплату:">
             <option value="Postpaid">Післяплата</option>
             <option value="BankPay">Оплата банківською картою</option></select
           ><br />
@@ -71,30 +71,10 @@
           <input type="button" value="submit" id="submit" onclick="myTable()" />
         </fieldset>
       </form>
-      <table id="myTable">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>City</th>
-            <th>Post</th>
-            <th>Pay</th>
-            <th>Coment</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
 
       <div id="orderInfo">
-        <h2>"Інформація про замовлення:"</h2>
-        <table>
+        <table id="orderBody">
+          
           <thead>
             <tr>
               <th>ПІБ</th>
@@ -103,10 +83,25 @@
               <th>Оплата</th>
               <th>Коментар</th>
             </tr>
-            <tbody id="orderBody"></tbody>
+            <tbody id="orderTableBody"></tbody>
           </thead>
         </table>
       </div>
+      
+      <table id="myTable">
+        <caption class="info-order"><b>"Інформація про замовлення:"</b></caption>
+        <thead>
+          <tr>
+            <th>ПІБ</th>
+            <th>Місто</th>
+            <th>Пошта</th>
+            <th>Оплата</th>
+            <th>Коментар</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
     </div>
     <script src="MAIN.JS"></script>
   </body>

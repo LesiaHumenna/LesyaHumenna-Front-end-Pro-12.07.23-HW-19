@@ -141,7 +141,7 @@ btnBuy.addEventListener("click", (e) => {
 const NAME_ERROR = "Please enter a name";
 let form = document.getElementById("form");
 let table = document.getElementById("myTable");
-
+let ordersBody = document.getElementById("orderBody");
 let nameElement = form.elements["fullName"];
 
 function myTable() {
@@ -159,15 +159,30 @@ function myTable() {
     newRow.insertCell(3),
     newRow.insertCell(4),
   ];
+    cells[0].innerHTML = fullName;
+    cells[1].innerHTML = city;
+    cells[2].innerHTML = post;
+    cells[3].innerHTML = pay;
+    cells[4].innerHTML = coment;
 
-  cells[0].innerHTML = fullName;
-  cells[1].innerHTML = city;
-  cells[2].innerHTML = post;
-  cells[3].innerHTML = pay;
-  cells[4].innerHTML = coment;
+
+let orderRow = ordersBody.insertRow(-1); 
+let orderCells = [
+    orderRow.insertCell(0),
+    orderRow.insertCell(1),
+    orderRow.insertCell(2),
+    orderRow.insertCell(3),
+    orderRow.insertCell(4)
+];
+  orderCells[0].innerHTML = fullName;
+  orderCells[1].innerHTML = city;
+  orderCells[2].innerHTML = post;
+  orderCells[3].innerHTML = pay;
+  orderCells[4].innerHTML = coment;
 
   form.reset();
   table.style.display = "table";
+  document.getElementById("orderInfo").style.display = "block";
 }
 //
 function showError(el, message) {
@@ -201,8 +216,8 @@ form.addEventListener("submit", (event) => {
 
   if (isNameValid) {
     console.log("Submit");
-    myTable();
   }
+  myTable();
 });
 //
 nameElement.addEventListener("input", (event) => {
