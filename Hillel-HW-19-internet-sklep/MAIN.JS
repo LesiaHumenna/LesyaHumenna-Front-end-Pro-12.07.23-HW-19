@@ -183,6 +183,7 @@ let orderCells = [
   form.reset();
   table.style.display = "table";
   document.getElementById("orderInfo").style.display = "block";
+  document.getElementById("form").style.display = "block";
 }
 //
 function showError(el, message) {

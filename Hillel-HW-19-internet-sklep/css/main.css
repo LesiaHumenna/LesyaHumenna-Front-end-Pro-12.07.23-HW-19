@@ -27,10 +27,11 @@ button {
     border          : none;
 }
 
-form {
+#form {
     background-color: #c6e6c7;
     max-width       : 550px;
     margin-top      : 20px;
+    /* display         : none; */
 }
 
 #signup {
@@ -54,12 +55,14 @@ select {
 table,
 td,
 th {
-    border-collapse : collapse;
-    margin-top      : 20px;
+    border-collapse: collapse;
+    margin-top     : 20px;
 }
-table{
-    display         : none;
+
+table {
+    display: none;
 }
+
 table,
 td,
 th {
@@ -74,31 +77,37 @@ th {
 .info-order {
     text-align: center;
     color     : rgb(3, 87, 3);
-    max-width: 100%;
+    max-width : 100%;
 }
 
 #orderInfo {
     margin-top: 10px;
 }
 
-#orderInfo, table {
+#orderInfo,
+table {
     border-collapse: collapse;
 }
 
 #orderInfo th,
-#orderInfo td, .info-order {
+#orderInfo td,
+.info-order {
     padding: 8px;
     border : 1px solid #ccc;
 }
-#orderInfo, th{
-    color:#4CAF50;
+
+#orderInfo,
+th {
+    color: #4CAF50;
 }
 
-#orderInfo, thead {
+#orderInfo,
+thead {
     background-color: #f2f2f2;
 }
 
-#orderInfo, h2 {
+#orderInfo,
+h2 {
     font-size    : 24px;
     font-weight  : bold;
     margin-bottom: 10px;
