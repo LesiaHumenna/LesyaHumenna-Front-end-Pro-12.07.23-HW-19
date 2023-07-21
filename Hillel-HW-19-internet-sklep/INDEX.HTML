@@ -8,24 +8,31 @@
   </head>
   <body>
     <div class="wrap">
+      <div class="container">
+        <div class="orders-info">
+          <button class="btn-buy">'Мої замовлення:'</button>
+          <h4 class="subtitle" >Orders:</h4>
+          <ol class="orders-list"></ol>
+        </div>
+
       <section class="categ">
         <ul class="category-list">
           <li data-id=""></li>
         </ul>
-        <ul class="orders"></ul>
+        
       </section>
       <section class="products">
         <ul class="category-products">
-          <li data-name=""></li>
+          <li data-name="" data-prise=""></li>
         </ul>
       </section>
       <section class="info">
         <p></p>
         <button class="btn">Buy</button>
-        <button class="btn-buy">'Мої замовлення'</button>
       </section>
-
+    
       <!-- form -->
+      <div class="order-form">
       <form action="#" id="form">
         <fieldset id="signup">
           <legend><b>Дані покупця:</b></legend>
@@ -71,7 +78,7 @@
           <input type="button" value="submit" id="submit" onclick="myTable()" />
         </fieldset>
       </form>
-
+    </div>
       <div id="orderInfo">
         <table id="orderBody">
           
@@ -103,6 +110,7 @@
         </tbody>
       </table>
     </div>
+  </div>
     <script src="MAIN.JS"></script>
   </body>
 </html>

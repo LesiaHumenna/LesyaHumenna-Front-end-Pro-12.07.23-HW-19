@@ -1,8 +1,17 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
 .wrap {
-    display        : flex;
+    min-width: 100%;
+}
+.container{
+    max-width: 100%;
+    display: flex;
+    margin: 0px auto;
+    flex-direction: row;
     justify-content: space-around;
 }
-
 section {
     width     : 33, 3%;
     /* display: block; */
@@ -23,15 +32,27 @@ button {
     background-color: #4CAF50;
     color           : white;
     padding         : 5px 10px;
+    margin: 10px 5px;
     cursor          : pointer;
     border          : none;
+}
+.subtitle {
+    display: none;
+    color: rgb(1, 120, 1)
+}
+.btn {
+    display: none;
+}
+
+.order-user {
+    background-color: #e58d8d;
 }
 
 #form {
     background-color: #c6e6c7;
     max-width       : 550px;
     margin-top      : 20px;
-    /* display         : none; */
+    display         : none;
 }
 
 #signup {
