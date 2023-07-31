@@ -54,7 +54,7 @@ const categ = [
     ],
   },
 ];
-
+const container = document.querySelector(".container");
 const categoryEl = document.querySelector(".categ");
 const categoryListEl = document.querySelector(".categ .category-list");
 const productCategoryListEl = document.querySelector(
@@ -67,7 +67,7 @@ const ordersListEl = document.querySelector(".orders-info .orders-list");
 const ordersEl = document.querySelector(".orders");
 const subtitle = document.querySelector('.subtitle');
 let currentCat = {};
-
+let currentProd = {};
 let orders = [];
 
 function displayOrders() {
@@ -96,8 +96,14 @@ function showOrderDetails(order, index) {
     <p>Товар: ${order.name}</p>
     <p>Ціна: ${order.prise}</p>
     <button class="btn-delete" data-index="${index}">Видалити</button>
+    <button class= "btn-return" data-index="${index}">Повернутися</button>
   `;
   infoSection.appendChild(detailsEl);
+  const btnReturn = document.querySelector('.btn-return');
+  btnReturn.addEventListener('click',()=>{
+    infoSection.innerHTML = "";
+    categoryEl.style.display = "block";
+  })
 }
 ////
 function handleDeleteClick(event) {
@@ -109,7 +115,6 @@ function handleDeleteClick(event) {
 
 function deleteOrder(index) {
   let lsOrders = localStorage.getItem("orders");
-  let orders = [];
   if (lsOrders) {
     orders = JSON.parse(lsOrders);
   }
@@ -137,12 +142,14 @@ btnOrders.addEventListener("click", () => {
 infoSection.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-delete")) {
     const index = parseInt(e.target.getAttribute("data-index"));
+    if(confirm("Are you sure you want to delete?")){
+      orders = orders.filter((order)=>order.id !== index);
+    }
     if (Number.isInteger(index)) {
-      // Видаліть замовлення зі списку та з localStorage
       orders.splice(index, 1);
       localStorage.setItem("orders", JSON.stringify(orders));
-      displayOrders();
     }
+    displayOrders();
   }
 });
 //
@@ -179,8 +186,25 @@ categoryListEl.addEventListener("click", (e) => {
 //
 productCategoryListEl.addEventListener("click", (e) => {
   const productName = e.target.getAttribute("data-name");
-  console.log(productName);
-
+  const productPrise = e.target.getAttribute("data-prise");
+  console.log(productName, productPrise);
+  if (productName && productPrise) {
+    const li = document.createElement("li");
+        li.innerText = `${productName} - ${productPrise}`;
+        ordersListEl.appendChild(li);
+        const orderProduct = {
+          name: productName,   
+          prise: productPrise,
+          date: new Date().toLocaleDateString(),
+        };
+        let lsOrder = localStorage.getItem("orders");
+        let orders = []; 
+        if (lsOrder) {
+              orders = JSON.parse(lsOrder);
+            }
+            orders.push(orderProduct); 
+        localStorage.setItem("orders", JSON.stringify(orders));
+          } 
   const filterProd = categ.reduce((acc, curr) => {
     const filteredProducts = curr.products.filter((product) => {
       return product.name === productName;
@@ -190,16 +214,15 @@ productCategoryListEl.addEventListener("click", (e) => {
   console.log(filterProd);
 
   productCategoryListEl.innerHTML = "";
-  //
-  filterProd.forEach((product) => {
+  if (filterProd.length > 0) {
+    currentProd = filterProd[0]; 
     const li = document.createElement("li");
-    li.innerText = `${product.name} - ${product.prise}`;
-    const productName = e.target.innerText;
-    li.setAttribute("data-name", product.name);
-    li.setAttribute("data-prise", product.prise);
-    console.log(productName);
+    li.innerText = `${currentProd.name} - ${currentProd.prise}`;
+    li.setAttribute("data-name", currentProd.name);
+    li.setAttribute("data-prise", currentProd.prise);
+    console.log(currentProd.name);
     productCategoryListEl.appendChild(li);
-  });
+  }
 });
 //
 
@@ -251,6 +274,8 @@ function myTable() {
     date: new Date().toLocaleString(),
     product: currentProd,
   };
+orders.push(order);
+localStorage.setItem("orders", JSON.stringify(orders));
 
   let newRow = table.insertRow(-1);
   let cells = [
